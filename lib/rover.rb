@@ -49,19 +49,19 @@ class Rover
   end
 
   def go_up
-    self.y += 1
+    self.y += 1 if y < planet.y
   end
 
   def go_right
-    self.x += 1
+    self.x += 1 if x < planet.x
   end
 
   def go_down
-    self.y -= 1
+    self.y -= 1 if y > 0
   end
 
   def go_left
-    self.x -= 1
+    self.x -= 1 if x > 0
   end
 
   def rotate_left

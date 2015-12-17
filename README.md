@@ -10,4 +10,4 @@ $ ruby rover-mission.rb [path to your input.txt]
 
 ##Todo
 
-* Handle moving out of bounds
+* Handle starting off out of bounds
