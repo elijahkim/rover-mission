@@ -13,13 +13,15 @@ class Nasa
     end
   end
 
+  def rovers_coords
+    rovers.map(&:position).join("\n")
+  end
+
+  private
+
   def move_rover(rover, instructions)
     instructions.each_char do |instruction|
       rover.move!(instruction)
     end
-  end
-
-  def rovers_coords
-    rovers.map(&:position).join("\n")
   end
 end

@@ -10,7 +10,7 @@ describe Nasa do
     it "moves a rover" do
       rover = subject.rovers.first
       instruction = subject.instructions.first
-      subject.move_rover(rover, instruction)
+      subject.send(:move_rover, rover, instruction)
 
       expect(rover.position).to eq ("1 3 N")
     end
@@ -18,10 +18,11 @@ describe Nasa do
 
   describe "#print_rovers_coords" do
     it "prints the coords of the rovers" do
-        doc = <<-eos
+      doc = <<-eos
 1 2 N
 3 3 E
-        eos
+      eos
+
       expect(subject.rovers_coords).to eq (doc.chop)
     end
   end
