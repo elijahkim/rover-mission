@@ -1,7 +1,8 @@
 require "spec_helper"
 
 describe Rover do
-  let(:subject) { described_class.new("3 3 N") }
+  let(:planet) { Planet.new([10, 10]) }
+  let(:subject) { described_class.new("3 3 N", planet) }
 
   describe "#move!(instruction)" do
     context "if the instruction is L" do

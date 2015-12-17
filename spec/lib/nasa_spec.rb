@@ -2,9 +2,9 @@ require "spec_helper"
 
 describe Nasa do
   let(:planet) { Planet.new([5, 5]) }
-  let(:rovers) { [Rover.new("1 2 N"), Rover.new("3 3 E")] }
+  let(:rovers) { [Rover.new("1 2 N", planet), Rover.new("3 3 E", planet)] }
   let(:instructions) { ["LMLMLMLMM", "MMRMMRMRRM"] }
-  let(:subject) { described_class.new(planet, rovers, instructions) }
+  let(:subject) { described_class.new(rovers, instructions) }
 
   describe "#move_rover" do
     it "moves a rover" do

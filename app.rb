@@ -1,7 +1,7 @@
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each {|file| require file }
 
 class App
-  attr_reader :input, :planet, :rovers, :instructions
+  attr_reader :input, :rovers, :instructions
 
   def initialize(input)
     @rovers = []
@@ -11,7 +11,7 @@ class App
   end
 
   def run
-    nasa = Nasa.new(planet, rovers, instructions)
+    nasa = Nasa.new(rovers, instructions)
     nasa.execute
     nasa.rovers_coords
   end
@@ -21,10 +21,10 @@ class App
   def set_up_world(input)
     input_map = input.split("\n")
 
-    @planet = Planet.new(input_map.shift.split(" "))
+    planet = Planet.new(input_map.shift.split(" "))
 
     input_map.each_slice(2) do |position, instruction|
-      @rovers.push Rover.new(position)
+      @rovers.push Rover.new(position, planet)
       @instructions.push(instruction)
     end
   end

@@ -1,8 +1,7 @@
 class Nasa
-  attr_reader :planet, :rovers, :instructions
+  attr_reader :rovers, :instructions
 
-  def initialize(planet, rovers, instructions)
-    @planet = planet
+  def initialize(rovers, instructions)
     @rovers = rovers
     @instructions = instructions
   end

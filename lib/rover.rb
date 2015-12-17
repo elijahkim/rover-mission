@@ -26,10 +26,12 @@ class Rover
     "M" => :forward
   }
 
+  attr_reader :planet
   attr_accessor :x, :y, :direction
 
-  def initialize(position)
+  def initialize(position, planet)
     set_position(position)
+    @planet = planet
   end
 
   def position
