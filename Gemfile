@@ -2,4 +2,7 @@ source "https://rubygems.org"
 
 ruby "2.2.3"
 
-gem "rspec"
+group :development do
+  gem "rspec"
+  gem "pry"
+end
