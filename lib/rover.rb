@@ -1,5 +1,19 @@
 class Rover
-  attr_reader :x, :y, :direction
+  LEFT_ROTATION = {
+    "N" => "W",
+    "W" => "S",
+    "S" => "E",
+    "E" => "W"
+  }
+
+  RIGHT_ROTATION = {
+    "N" => "E",
+    "E" => "S",
+    "S" => "W",
+    "W" => "N"
+  }
+
+  attr_accessor :x, :y, :direction
 
   def initialize(position)
     set_position(position)
@@ -12,12 +26,19 @@ class Rover
   def move!(instruction)
     if instruction == "L"
       rotate_left
+    elsif instruction == "R"
+      rotate_right
     end
   end
 
   private
 
   def rotate_left
+    @direction = LEFT_ROTATION[@direction]
+  end
+
+  def rotate_right
+    @direction = RIGHT_ROTATION[@direction]
   end
 
   def set_position(position)
