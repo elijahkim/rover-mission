@@ -20,7 +20,7 @@ class Rover
   end
 
   def position
-    "#{x} #{y} #{direction}"
+    "#{@x} #{@y} #{@direction}"
   end
 
   def move!(instruction)
@@ -28,10 +28,24 @@ class Rover
       rotate_left
     elsif instruction == "R"
       rotate_right
+    elsif instruction == "M"
+      forward
     end
   end
 
   private
+
+  def forward
+    if @direction == "N"
+      @x = @x + 1
+    elsif @direction == "W"
+      @y = @y - 1
+    elsif @direction == "S"
+      @x = @x - 1
+    elsif @direction == "E"
+      @y = @y + 1
+    end
+  end
 
   def rotate_left
     @direction = LEFT_ROTATION[@direction]
@@ -44,8 +58,8 @@ class Rover
   def set_position(position)
     position_map = position.split(" ")
 
-    @x = position_map[0]
-    @y = position_map[1]
+    @x = position_map[0].to_i
+    @y = position_map[1].to_i
     @direction = position_map[2]
   end
 end
