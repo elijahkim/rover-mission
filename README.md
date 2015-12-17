@@ -5,7 +5,7 @@
 To run rover mission create a input.txt and give ruby-mission.rb the path
 
 ```
-$ ruby rover-mission.rb [path to your input.txt]
+$ ./rover-mission [path to your input.txt]
 ```
 
 ##Todo
