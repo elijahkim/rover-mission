@@ -8,7 +8,7 @@ describe App do
     it "has the proper attributes" do
       expect(subject.planet).to have_attributes(y: 5, x: 5)
       expect(subject.rovers.count).to eq 2
-      expect(subject.directions.count).to eq 2
+      expect(subject.instructions.count).to eq 2
     end
   end
 

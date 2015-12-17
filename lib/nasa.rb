@@ -1,16 +1,21 @@
 class Nasa
-  attr_reader :planet, :rovers, :directions
+  attr_reader :planet, :rovers, :instructions
 
-  def initialize(planet, rovers, directions)
+  def initialize(planet, rovers, instructions)
     @planet = planet
     @rovers = rovers
-    @directions = directions
+    @instructions = instructions
   end
 
   def execute
-    <<-eos
-1 3 N
-5 1 E
-     eos
+    rovers.each_with_index do |rover, index|
+      move_rover(rover, instructions[index])
+    end
+  end
+
+  def move_rover(rover, instructions)
+    instructions.each_char do |instruction|
+      rover.move!(instruction)
+    end
   end
 end
