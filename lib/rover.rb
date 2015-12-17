@@ -47,19 +47,19 @@ class Rover
   end
 
   def go_up
-    @x = @x + 1
-  end
-
-  def go_right
     @y = @y + 1
   end
 
+  def go_right
+    @x = @x + 1
+  end
+
   def go_down
-    @x = @x - 1
+    @y = @y - 1
   end
 
   def go_left
-    @y = @y - 1
+    @x = @x - 1
   end
 
   def rotate_left

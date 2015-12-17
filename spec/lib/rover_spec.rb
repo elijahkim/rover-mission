@@ -26,7 +26,7 @@ describe Rover do
           subject.direction = "N"
           subject.move!("M")
 
-          expect(subject.position).to eq "4 3 N"
+          expect(subject.position).to eq "3 4 N"
         end
       end
 
@@ -35,7 +35,7 @@ describe Rover do
           subject.direction = "E"
           subject.move!("M")
 
-          expect(subject.position).to eq "3 4 E"
+          expect(subject.position).to eq "4 3 E"
         end
       end
 
@@ -44,7 +44,7 @@ describe Rover do
           subject.direction = "S"
           subject.move!("M")
 
-          expect(subject.position).to eq "2 3 S"
+          expect(subject.position).to eq "3 2 S"
         end
       end
 
@@ -53,7 +53,7 @@ describe Rover do
           subject.direction = "W"
           subject.move!("M")
 
-          expect(subject.position).to eq "3 2 W"
+          expect(subject.position).to eq "2 3 W"
         end
       end
     end
