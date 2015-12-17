@@ -33,7 +33,7 @@ class Rover
   end
 
   def position
-    "#{@x} #{@y} #{@direction}"
+    "#{x} #{y} #{direction}"
   end
 
   def move!(instruction)
@@ -43,38 +43,38 @@ class Rover
   private
 
   def forward
-    send(MOVE_FORWARD[@direction])
+    send(MOVE_FORWARD[direction])
   end
 
   def go_up
-    @y = @y + 1
+    self.y += 1
   end
 
   def go_right
-    @x = @x + 1
+    self.x += 1
   end
 
   def go_down
-    @y = @y - 1
+    self.y -= 1
   end
 
   def go_left
-    @x = @x - 1
+    self.x -= 1
   end
 
   def rotate_left
-    @direction = LEFT_ROTATION[@direction]
+    self.direction = LEFT_ROTATION[direction]
   end
 
   def rotate_right
-    @direction = RIGHT_ROTATION[@direction]
+    self.direction = RIGHT_ROTATION[direction]
   end
 
   def set_position(position)
     position_map = position.split(" ")
 
-    @x = position_map[0].to_i
-    @y = position_map[1].to_i
-    @direction = position_map[2]
+    self.x = position_map[0].to_i
+    self.y = position_map[1].to_i
+    self.direction = position_map[2]
   end
 end
