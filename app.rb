@@ -1,3 +1,5 @@
+Dir[File.dirname(__FILE__) + '/lib/*.rb'].each {|file| require file }
+
 class App
   attr_reader :input, :planet
 
@@ -17,6 +19,6 @@ class App
   def set_up_world(input)
     input_map = input.split("\n")
 
-    @planet = input_map.shift
+    @planet = Planet.new(input_map.shift.split(" "))
   end
 end
