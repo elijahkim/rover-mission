@@ -3,7 +3,7 @@ class Rover
     "N" => "W",
     "W" => "S",
     "S" => "E",
-    "E" => "W"
+    "E" => "N"
   }
 
   RIGHT_ROTATION = {
@@ -11,6 +11,19 @@ class Rover
     "E" => "S",
     "S" => "W",
     "W" => "N"
+  }
+
+  MOVE_FORWARD = {
+    "N" => :go_up,
+    "E" => :go_right,
+    "S" => :go_down,
+    "W" => :go_left,
+  }
+
+  MOVE_INSTRUCTION = {
+    "L" => :rotate_left,
+    "R" => :rotate_right,
+    "M" => :forward
   }
 
   attr_accessor :x, :y, :direction
@@ -24,27 +37,29 @@ class Rover
   end
 
   def move!(instruction)
-    if instruction == "L"
-      rotate_left
-    elsif instruction == "R"
-      rotate_right
-    elsif instruction == "M"
-      forward
-    end
+    send(MOVE_INSTRUCTION[instruction])
   end
 
   private
 
   def forward
-    if @direction == "N"
-      @x = @x + 1
-    elsif @direction == "W"
-      @y = @y - 1
-    elsif @direction == "S"
-      @x = @x - 1
-    elsif @direction == "E"
-      @y = @y + 1
-    end
+    send(MOVE_FORWARD[@direction])
+  end
+
+  def go_up
+    @x = @x + 1
+  end
+
+  def go_right
+    @y = @y + 1
+  end
+
+  def go_down
+    @x = @x - 1
+  end
+
+  def go_left
+    @y = @y - 1
   end
 
   def rotate_left
