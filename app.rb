@@ -1,17 +1,17 @@
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each {|file| require file }
 
 class App
-  attr_reader :input, :planet, :rovers
+  attr_reader :input, :planet, :rovers, :directions
 
   def initialize(input)
+    @rovers = []
+    @directions = []
+
     set_up_world(input)
   end
 
   def run
-    <<-eos
-1 3 N
-5 1 E
-     eos
+    Nasa.new(planet, rovers, directions).execute
   end
 
   private
@@ -20,8 +20,10 @@ class App
     input_map = input.split("\n")
 
     @planet = Planet.new(input_map.shift.split(" "))
-    @rovers = input_map.each_slice(2).map do |position, directions|
-      Rover.new(position, directions)
+
+    input_map.each_slice(2) do |position, direction|
+      @rovers.push Rover.new(position)
+      @directions.push direction
     end
   end
 end

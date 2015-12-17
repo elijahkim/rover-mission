@@ -1,8 +1,7 @@
 class Rover
   attr_reader :position, :directions
 
-  def initialize(position, directions)
+  def initialize(position)
     @position = position
-    @directions = directions
   end
 end
