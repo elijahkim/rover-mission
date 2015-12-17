@@ -5,7 +5,8 @@ describe App do
   let(:subject) { described_class.new(input) }
 
   it "has the proper attributes" do
-    expect(subject.planet).to have_attributes(:y => 5, :x => 5)
+    expect(subject.planet).to have_attributes(y: 5, x: 5)
+    expect(subject.rovers.count).to eq 2
   end
 
   it "returns the proper coordinates" do
