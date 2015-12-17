@@ -18,4 +18,8 @@ class Nasa
       rover.move!(instruction)
     end
   end
+
+  def rovers_coords
+    rovers.map(&:position).join("\n")
+  end
 end

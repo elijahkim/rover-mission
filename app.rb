@@ -11,7 +11,9 @@ class App
   end
 
   def run
-    Nasa.new(planet, rovers, instructions).execute
+    nasa = Nasa.new(planet, rovers, instructions)
+    nasa.execute
+    nasa.rovers_coords
   end
 
   private

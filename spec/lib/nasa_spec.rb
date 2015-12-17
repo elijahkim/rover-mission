@@ -15,4 +15,14 @@ describe Nasa do
       expect(rover.position).to eq ("1 3 N")
     end
   end
+
+  describe "#print_rovers_coords" do
+    it "prints the coords of the rovers" do
+        doc = <<-eos
+1 2 N
+3 3 E
+        eos
+      expect(subject.rovers_coords).to eq (doc.chop)
+    end
+  end
 end

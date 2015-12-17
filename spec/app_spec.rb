@@ -14,12 +14,12 @@ describe App do
 
   describe "#run" do
     it "returns the proper coordinates" do
-      expect(subject.run).to eq(
-        <<-eos
+      doc = <<-eos
 1 3 N
 5 1 E
-        eos
-      )
+      eos
+
+      expect(subject.run).to eq(doc.chop)
     end
   end
 end
